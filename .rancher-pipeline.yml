@@ -1,0 +1,17 @@
+stages:
+- name: ls
+  steps:
+  - runScriptConfig:
+      image: busybox:latest
+      shellScript: ls
+  when:
+    branch:
+      exclude:
+      - master
+- name: newstage
+  steps:
+  - runScriptConfig:
+      image: python:latest
+      shellScript: print("test")
+timeout: 1
+notification: {}
